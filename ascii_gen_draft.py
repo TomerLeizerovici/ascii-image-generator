@@ -22,7 +22,7 @@ def main() -> None:
     ROWS = 80
     GRAYSCALE_CHARS = '@%#*+=-:. '
     ascii_image_scale = AsciiImageScale(charecter_size=FONT_SIZE, columns=COLS, rows=ROWS)
-    path_to_image: Path = Path("snufkin.jpg")
+    path_to_image: Path = Path("assets/snufkin.jpg")
     image = create_image_from_path(path_to_image).convert("L")
     resized_image: Image.Image = scale_image(image, ascii_image_scale)
     ascii_art: str = ""
@@ -33,7 +33,7 @@ def main() -> None:
     ascii_art_image = Image.new("RGB", resized_image.size)
     d = ImageDraw.Draw(ascii_art_image)
     d.multiline_text((0,0), ascii_art,fill=(255,255,255),font=ImageFont.truetype("cour.ttf",size=16))
-    ascii_art_image.save(open("ascii_art.jpg","w"))
+    ascii_art_image.save(open("assets/ascii_art.jpg","w"))
 
 
 
